@@ -1,0 +1,13 @@
+{
+	"index": {
+		"board_name": "",
+		"boards": []
+	},
+
+	"database": {
+		"host": "localhost",
+		"name": "openboard",
+		"username": "",
+		"password": ""
+	}
+}

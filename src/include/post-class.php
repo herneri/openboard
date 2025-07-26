@@ -51,7 +51,15 @@ class post extends board_construct {
 	}
 
 	public function verify_attributes() {
-		return;
+		if ($this->name.length > NAME_MAX_LEN) {
+			return false;
+		} else if ($this->title.length > TITLE_MAX_LEN) {
+			return false;
+		} else if ($this->content.length > CONTENT_MAX_LEN) {
+			return false;
+		}
+
+		return true;
 	}
 
 	public function load_db_data($db_connection) {

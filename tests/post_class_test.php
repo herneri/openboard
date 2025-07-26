@@ -21,24 +21,24 @@ use PHPUnit\Framework\TestCase;
 require_once("../src/include/post-class.php");
 
 class post_class_test extends TestCase {
+	public $post_example = array(
+		"name" => "User",
+		"title" => "A Post",
+		"content" => "Some text"
+	);
+
 	public function test_transfer_post_data() {
 		$result = true;
-
-		$post_example = array(
-			"name" => "User",
-			"title" => "A Post",
-			"content" => "Some text"
-		);
 
 		$test = new post;
 
 		$target = new post;
-		$target->name = $post_example["name"];
-		$target->title = $post_example["title"];
-		$target->content = $post_example["content"];
+		$target->name = $this->post_example["name"];
+		$target->title = $this->post_example["title"];
+		$target->content = $this->post_example["content"];
 		$target->posted_on = date("y/m/d");
 
-		$test->transfer_post_data($post_example);
+		$test->transfer_post_data($this->post_example);
 
 		if ($test->name != $target->name || $test->title != $target->title
 			|| $test->content != $target->content || $test->posted_on != $target->posted_on) {
@@ -46,6 +46,14 @@ class post_class_test extends TestCase {
 		}
 
 		$this->assertTrue($result);
+		return;
+	}
+
+	public function test_verify_attributes() {
+		$post = new post;
+		$post->transfer_post_data($this->post_example);
+
+		$this->assertTrue($post->verify_attributes());
 		return;
 	}
 }

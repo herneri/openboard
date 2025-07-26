@@ -51,11 +51,11 @@ class post extends board_construct {
 	}
 
 	public function verify_attributes() {
-		if ($this->name.length > NAME_MAX_LEN) {
+		if (strlen($this->name) > self::NAME_MAX_LEN) {
 			return false;
-		} else if ($this->title.length > TITLE_MAX_LEN) {
+		} else if (strlen($this->title) > self::TITLE_MAX_LEN) {
 			return false;
-		} else if ($this->content.length > CONTENT_MAX_LEN) {
+		} else if (strlen($this->content) > self::CONTENT_MAX_LEN) {
 			return false;
 		}
 

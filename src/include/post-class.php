@@ -62,7 +62,24 @@ class post extends board_construct {
 		return true;
 	}
 
-	public function load_db_data($db_connection) {
-		return;
+	public function load_db_data($db_connection, $id) {
+		$prepared_statement = $db_connection->prepare("SELECT * FROM posts WHERE post_id = ?");
+
+		$prepared_statement->execute([$id]);
+		$result = $prepared_statement->fetch(PDO::FETCH_ASSOC);
+
+		if ($result == false) {
+			return false;
+		}
+
+		$this->name = $result["poster_name"];
+		$this->title = $result["title"];
+		$this->content = $result["content"];
+		$this->posted_on = $result["posted_on"];
+		$this->comment_count = $result["comment_count"];
+		$this->image_id = $result["image_id"];
+		$this->board_id = $result["board_id"];
+
+		return true;
 	}
 }

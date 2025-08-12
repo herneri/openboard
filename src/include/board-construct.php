@@ -31,5 +31,5 @@ abstract class board_construct {
 	public abstract function verify_attributes();
 
 	/* Load data from the database into an object. */
-	public abstract function load_db_data($db_connection);
+	public abstract function load_db_data($db_connection, $id);
 }

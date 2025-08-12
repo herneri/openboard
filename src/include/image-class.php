@@ -24,10 +24,15 @@ class image extends board_construct {
 	private const PATH_MAX_LEN = 255;
 
 	public function transfer_post_data($post) {
+		$this->path = $post["path"];
 		return;
 	}
 
 	public function verify_attributes() {
+		if (strlen($this->path) > self::PATH_MAX_LEN) {
+			return false;
+		}
+
 		return true;
 	}
 

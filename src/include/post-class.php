@@ -17,9 +17,9 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-require_once("board-construct.php");
+require_once("construct.php");
 
-class post extends board_construct {
+class post extends construct {
 	public $name;
 	public $title;
 	public $content;

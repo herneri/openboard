@@ -17,9 +17,9 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-require_once("board-construct.php");
+require_once("construct.php");
 
-class image extends board_construct {
+class image extends construct {
 	public $path;
 	private const PATH_MAX_LEN = 255;
 

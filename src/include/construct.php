@@ -21,7 +21,7 @@
 	Super class for the board, image, admin, and other classes.
 	Abstracts common data procedures for these constructs.
 */
-abstract class board_construct {
+abstract class construct {
 	public $id;
 
 	/* Set the data in $_POST to a new object. */

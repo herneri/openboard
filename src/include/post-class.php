@@ -34,7 +34,7 @@ class post extends board_construct {
 	private const TITLE_MAX_LEN = 25;
 	private const CONTENT_MAX_LEN = 255;
 
-	public function transfer_post_data($post) {
+	public function transfer_post_data($post): void {
 		$this->name = $post["name"];
 		$this->title = $post["title"];
 		$this->content = $post["content"];
@@ -50,7 +50,7 @@ class post extends board_construct {
 		return;
 	}
 
-	public function verify_attributes() {
+	public function verify_attributes(): bool {
 		if (strlen($this->name) > self::NAME_MAX_LEN) {
 			return false;
 		} else if (strlen($this->title) > self::TITLE_MAX_LEN) {
@@ -62,7 +62,7 @@ class post extends board_construct {
 		return true;
 	}
 
-	public function load_db_data($db_connection, $id) {
+	public function load_db_data($db_connection, $id): bool {
 		$prepared_statement = $db_connection->prepare("SELECT * FROM posts WHERE post_id = ?");
 
 		$prepared_statement->execute([$id]);

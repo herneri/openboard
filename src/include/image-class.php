@@ -23,12 +23,12 @@ class image extends board_construct {
 	public $path;
 	private const PATH_MAX_LEN = 255;
 
-	public function transfer_post_data($post) {
+	public function transfer_post_data($post): void {
 		$this->path = $post["path"];
 		return;
 	}
 
-	public function verify_attributes() {
+	public function verify_attributes(): bool {
 		if (strlen($this->path) > self::PATH_MAX_LEN) {
 			return false;
 		}
@@ -36,7 +36,7 @@ class image extends board_construct {
 		return true;
 	}
 
-	public function load_db_data($db_connection, $id) {
+	public function load_db_data($db_connection, $id): bool {
 		$prepared_statement = $db_connection->prepare("SELECT * FROM images WHERE image_id = ?");
 
 		$prepared_statement->execute([$id]);

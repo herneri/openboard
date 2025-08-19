@@ -25,11 +25,11 @@ abstract class board_construct {
 	public $id;
 
 	/* Set the data in $_POST to a new object. */
-	public abstract function transfer_post_data($post);
+	public abstract function transfer_post_data($post): void;
 
 	/* Verify all attributes of an object. */
-	public abstract function verify_attributes();
+	public abstract function verify_attributes(): bool;
 
 	/* Load data from the database into an object. */
-	public abstract function load_db_data($db_connection, $id);
+	public abstract function load_db_data($db_connection, $id): bool;
 }

@@ -2,12 +2,23 @@
 
 Light, libre image board technology written in vanilla PHP that can be slightly customized.
 
+The basic features of an image board are supported:
+
+* Numerous boards
+* Posts with images
+* Comments (with optional images) on posts
+* Admin features to manage posts
+* Block specific IP addresses
+
+These features are handled through a REST API, so different frontends can be used for
+one instance. However, openboard comes with a simple web frontend.
+
 ## Tech Stack
 
 ### Frontend
 
-HTML, CSS, basic and unrequired JavaScript. This is the default but it can be
-replaced with any frontend interface thanks to openboard's utilization of microservices.
+HTML, CSS, basic and unrequired JavaScript. This is the default interface but it can be
+replaced as mentioned earlier.
 
 ### Backend
 
@@ -18,6 +29,14 @@ Vanilla PHP for server-side rendering and microservices
 MySQL or MariaDB
 
 ## Setup and Configuration
+
+openboard is meant to run with two seperate web servers:
+
+1. The REST API and DBMS to handle data requests.
+2. Retrieve data from the backend and render HTML.
+
+Doing so allows for scalability and avoids pointless HTTP requests to the localhost when
+using a web frontend. However, you can run it on one host just fine.
 
 Run this statement in your MySQL or MariaDB DBMS before using openboard:
 `CREATE DATABASE openboard;`

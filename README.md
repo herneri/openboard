@@ -2,6 +2,8 @@
 
 Light, libre image board technology written in vanilla PHP that can be slightly customized.
 
+![Board screenshot](example.png)
+
 The basic features of an image board are supported:
 
 * Numerous boards
